@@ -12,6 +12,9 @@ class CustomAlertBox {
     return showDialog(
         context: context,
         builder: (context) {
+          Future.delayed(Duration(seconds: 2), () {
+            Navigator.of(context).pop(true);
+          });
           return AlertDialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -20,13 +23,6 @@ class CustomAlertBox {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 willDisplayWidget,
-                MaterialButton(
-                  color: Colors.white30,
-                  child: Text('close alert'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
               ],
             ),
             elevation: 10,
